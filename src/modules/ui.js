@@ -57,36 +57,29 @@ export function displayNextDays(days) {
 
         //Day name
         const dayNameDiv = document.createElement("div");
-        dayNameDiv.classList.add("day-name");
+        dayNameDiv.classList.add("day-date");
         dayNameDiv.textContent = getDayName(day.datetime);
+
+        //Min and max temp 
+        const dayTempDiv = document.createElement("div");
+        dayTempDiv.classList.add("day-temp");
+        dayTempDiv.textContent = `${Math.round(day.tempmin)}°C / ${Math.round(day.tempmax)}°C`;
 
         //Icon div
         const dayIconTextDiv = document.createElement("div");
         dayIconTextDiv.classList.add("day-icon-text");
         dayIconTextDiv.textContent = day.icon;
 
-        //Temperature container
-        const dayTempsDiv = document.createElement("div");
-        dayTempsDiv.classList.add("day-temps");
-
-        //Span for max temp
-        const maxTempSpan = document.createElement("span");
-        maxTempSpan.classList.add("max-temp");
-        maxTempSpan.textContent = `${Math.round(day.tempmax)}°`;
-
-        //Span for min temp
-        const minTempSpan = document.createElement("span");
-        minTempSpan.classList.add("min-temp");
-        minTempSpan.textContent = `${Math.round(day.tempmin)}°`;
-
-        //Append temperatures in their container
-        dayTempsDiv.appendChild(maxTempSpan);
-        dayTempsDiv.appendChild(minTempSpan);
+        //Description
+        const descriptionDiv = document.createElement("div");
+        descriptionDiv.classList.add("day-description");
+        descriptionDiv.textContent = day.description || day.conditions || '';
 
         //Append all elements in main card
-        dayCard.appendChild(dayNameDiv);
+        dayCard.appendChild(dayNameDiv);        
+        dayCard.appendChild(dayTempDiv);
         dayCard.appendChild(dayIconTextDiv);
-        dayCard.appendChild(dayTempsDiv);
+        dayCard.appendChild(descriptionDiv);
 
         //Append the entire card in containers
         nextDayContainer.appendChild(dayCard);
