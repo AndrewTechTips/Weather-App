@@ -1,7 +1,7 @@
 import './style.css';
 
 import { getWeatherData } from "./modules/weatherApi.js";
-import { displayCurrentWeather } from "./modules/ui.js";
+import { displayCurrentWeather, displayNextDays } from "./modules/ui.js";
 
 const searchInput = document.querySelector("#my-city");
 
@@ -14,9 +14,12 @@ searchInput.addEventListener("keypress", async (event) => {
 
         if(city) {
             const weatherData = await getWeatherData(city);
+
             displayCurrentWeather(weatherData);
-            searchInput.value = "";
+            displayNextDays(weatherData.days);
         }
+
+        searchInput.value = "";
     }
 });
 
@@ -24,5 +27,6 @@ searchInput.addEventListener("keypress", async (event) => {
 window.addEventListener("load", async () => {
     const initialData = await getWeatherData("London");
     displayCurrentWeather(initialData);
+    displayNextDays(initialData.days);
 });
 
