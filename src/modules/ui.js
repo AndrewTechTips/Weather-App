@@ -16,7 +16,7 @@ export function displayCurrentWeather (data) {
     //Box 2 details 
     document.querySelector('.feelslike-head').textContent = 'Feels Like';
     document.querySelector('.temp-feelslike').textContent = `${current.feelslike}°C`;
-    document.querySelector('.description').textContent = current.description;
+    document.querySelector('.description').textContent = today.description;
 
     //Box 3 details
     document.querySelector('.wind-head').textContent = 'Wind';

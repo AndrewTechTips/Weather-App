@@ -1,3 +1,6 @@
+import './style.css';
+
+
 import { getWeatherData } from "./modules/weatherApi.js";
 import { displayCurrentWeather } from "./modules/ui.js";
 
