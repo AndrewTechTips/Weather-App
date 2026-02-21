@@ -2,7 +2,7 @@ import sunriseIcon from '../assets/icons/sunrise.svg';
 import sunsetIcon from '../assets/icons/sunset.svg';
 import { getWeatherIcon } from "./getWeatherIcon";
 
-export function displayCurrentWeather (data) {
+export async function displayCurrentWeather (data) {
     
     if(!data) return;
 
@@ -12,7 +12,18 @@ export function displayCurrentWeather (data) {
     //Location Name
     document.querySelector(".city-name").textContent = data.resolvedAddress;
 
-    //Main temperatures
+    //Box - 1
+    document.querySelector(".date-today").textContent = today.datetime;
+
+    const iconCurrentEl = document.querySelector(".icon-current");
+    const iconUrl = await getWeatherIcon(current.icon);
+    const iconImg = document.createElement("img");
+    iconImg.src = iconUrl;
+    iconImg.alt = current.icon;
+    iconImg.classList.add("weather-icon-main");
+    iconCurrentEl.append(iconImg);
+
+
     document.querySelector(".temp-current").textContent = `${current.temp}°C`;
     document.querySelector(".min-today").textContent = `Min: ${today.tempmin} °C`
     document.querySelector('.max-today').textContent = `Max: ${today.tempmax}°C`;
@@ -31,6 +42,7 @@ export function displayCurrentWeather (data) {
 
     //Extra Info
     const sunriseEl = document.querySelector(".sunrise");
+    sunriseEl.textContent = "";
 
     const sunriseImg = document.createElement("img");
     sunriseImg.src = sunriseIcon;
@@ -43,6 +55,7 @@ export function displayCurrentWeather (data) {
     sunriseEl.append(sunriseImg, textSpan);
 
     const sunsetEl = document.querySelector(".sunset");
+    sunsetEl.textContent = "";
 
     const sunsetImg = document.createElement("img");
     sunsetImg.src = sunsetIcon;
