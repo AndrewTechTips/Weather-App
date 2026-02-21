@@ -45,11 +45,11 @@ export function displayNextDays(days) {
 
     const nextDayContainer = document.querySelector(".next-days");
 
-    nextDayContainer.textContent - "";
+    nextDayContainer.textContent = "";
 
     const forecastDays = days.slice(1, 8);
 
-    forecastDays.forEach(day => {
+    for (const days of forecastDays) {
 
         //Main container
         const dayCard = document.createElement("div");
@@ -66,7 +66,7 @@ export function displayNextDays(days) {
         dayTempDiv.textContent = `${Math.round(day.tempmin)}°C / ${Math.round(day.tempmax)}°C`;
 
         //Icon div
-        const dayIconTextDiv = document.createElement("div");
+        const dayIconImg = document.createElement("div");
         dayIconTextDiv.classList.add("day-icon-text");
         dayIconTextDiv.textContent = day.icon;
 
@@ -83,5 +83,5 @@ export function displayNextDays(days) {
 
         //Append the entire card in containers
         nextDayContainer.appendChild(dayCard);
-    });
+    };
 }
