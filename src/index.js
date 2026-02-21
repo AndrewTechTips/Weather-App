@@ -16,7 +16,7 @@ searchInput.addEventListener("keypress", async (event) => {
             const weatherData = await getWeatherData(city);
 
             displayCurrentWeather(weatherData);
-            displayNextDays(weatherData.days);
+            await displayNextDays(weatherData.days);
         }
 
         searchInput.value = "";
@@ -27,6 +27,6 @@ searchInput.addEventListener("keypress", async (event) => {
 window.addEventListener("load", async () => {
     const initialData = await getWeatherData("London");
     displayCurrentWeather(initialData);
-    displayNextDays(initialData.days);
+    await displayNextDays(initialData.days);
 });
 

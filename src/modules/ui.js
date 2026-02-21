@@ -1,3 +1,5 @@
+import { getWeatherIcon } from "./getWeatherIcon";
+
 export function displayCurrentWeather (data) {
     
     if(!data) return;
@@ -41,7 +43,7 @@ function getDayName (dateString) {
 }
 
 //Function for displaying next 7 days forecast
-export function displayNextDays(days) {
+export async function displayNextDays(days) {
 
     const nextDayContainer = document.querySelector(".next-days");
 
@@ -49,7 +51,7 @@ export function displayNextDays(days) {
 
     const forecastDays = days.slice(1, 8);
 
-    for (const days of forecastDays) {
+    for (const day of forecastDays) {
 
         //Main container
         const dayCard = document.createElement("div");
@@ -66,9 +68,19 @@ export function displayNextDays(days) {
         dayTempDiv.textContent = `${Math.round(day.tempmin)}°C / ${Math.round(day.tempmax)}°C`;
 
         //Icon div
-        const dayIconImg = document.createElement("div");
-        dayIconTextDiv.classList.add("day-icon-text");
-        dayIconTextDiv.textContent = day.icon;
+        const dayIconDiv = document.createElement("div");
+        dayIconDiv.classList.add("day-icon");
+
+        //Fetch the icon from assets
+        const dayIconUrl = await getWeatherIcon(day.icon);
+
+        //Image icon
+        const img = document.createElement("img");
+        img.classList.add("weather-icon-small");
+        img.src = dayIconUrl;
+        img.alt = day.conditions;
+
+        dayIconDiv.appendChild(img);
 
         //Description
         const descriptionDiv = document.createElement("div");
@@ -78,7 +90,7 @@ export function displayNextDays(days) {
         //Append all elements in main card
         dayCard.appendChild(dayNameDiv);        
         dayCard.appendChild(dayTempDiv);
-        dayCard.appendChild(dayIconTextDiv);
+        dayCard.appendChild(dayIconDiv);
         dayCard.appendChild(descriptionDiv);
 
         //Append the entire card in containers
