@@ -1,3 +1,5 @@
+import sunriseIcon from '../assets/icons/sunrise.svg';
+import sunsetIcon from '../assets/icons/sunset.svg';
 import { getWeatherIcon } from "./getWeatherIcon";
 
 export function displayCurrentWeather (data) {
@@ -17,8 +19,8 @@ export function displayCurrentWeather (data) {
 
     //Box 2 details 
     document.querySelector('.feelslike-head').textContent = 'Feels Like';
-    document.querySelector('.temp-feelslike').textContent = `${current.feelslike}°C`;
-    document.querySelector('.description').textContent = today.description;
+    document.querySelector('.temp-feelslike').textContent = `${Math.round(current.feelslike)}°C`;
+    document.querySelector('.description').textContent = today.description || today.conditions || "";
 
     //Box 3 details
     document.querySelector('.wind-head').textContent = 'Wind';
@@ -28,8 +30,29 @@ export function displayCurrentWeather (data) {
     }
 
     //Extra Info
-    document.querySelector('.sunrise').textContent = `Sunrise: ${current.sunrise}`;
-    document.querySelector('.sunset').textContent = `Sunset: ${current.sunset}`;
+    const sunriseEl = document.querySelector(".sunrise");
+
+    const sunriseImg = document.createElement("img");
+    sunriseImg.src = sunriseIcon;
+    sunriseImg.classList.add("sun-icon");
+    sunriseImg.alt = "Sunrise";
+
+    const textSpan = document.createElement("span");
+    textSpan.textContent = `Sunrise ${current.sunrise}`;
+
+    sunriseEl.append(sunriseImg, textSpan);
+
+    const sunsetEl = document.querySelector(".sunset");
+
+    const sunsetImg = document.createElement("img");
+    sunsetImg.src = sunsetIcon;
+    sunsetImg.alt = "Sunset";
+    sunsetImg.classList.add("sun-icon");
+
+    const textSpan2 = document.createElement("span");
+    textSpan2.textContent = `Sunset ${current.sunset}`;
+    sunsetEl.append(sunsetImg, textSpan2);
+    
     document.querySelector('.humidity').textContent = `Humidity: ${current.humidity}%`;
     document.querySelector('.pressure').textContent = `Pressure: ${current.pressure} hPa`;
     document.querySelector('.uv-index').textContent = `UV Index: ${current.uvindex}`;
