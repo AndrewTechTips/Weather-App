@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0b1220;
+	--surface: rgba(255, 255, 255, 0.06);
+	--surface-2: rgba(255, 255, 255, 0.09);
+	--text: rgba(255, 255, 255, 0.92);
+	--muted: rgba(255, 255, 255, 0.68);
+	--border: rgba(255, 255, 255, 0.12);
+	--accent: #5ad1ff;
+	--shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+	--radius: 14px;
+}
+
+body {
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: var(--text);
+    background-color: #070b14;
+    background-image: 
+		radial-gradient(circle at 15% 10%, rgba(90, 209, 255, 0.2), transparent 40%),
+		radial-gradient(
+			circle at 85% 25%,
+			rgba(125, 92, 255, 0.15),
+			transparent 40%
+		);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+header {
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    background: rgba(11, 18, 32, 0.6);
+    border-bottom: 1px solid var(--border);
+}
+
+header > * {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 16px 16px 12px;
+}
+
+header .search-bar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+    position: relative;
+}
+
+#my-city {
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    outline: none;
+    font-size: 14px;
+}
+
+#my-city::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#my-city:focus {
+    border-color: rgba(90, 209, 255, 0.55);
+    box-shadow: 0 0 0 4px rgba(90, 209, 255, 0.12);
+}
+
