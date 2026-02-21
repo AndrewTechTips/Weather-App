@@ -29,7 +29,7 @@ export function displayCurrentWeather (data) {
     document.querySelector('.sunrise').textContent = `Sunrise: ${current.sunrise}`;
     document.querySelector('.sunset').textContent = `Sunset: ${current.sunset}`;
     document.querySelector('.humidity').textContent = `Humidity: ${current.humidity}%`;
-    document.querySelector('.pressure').textContent = `Pressure: ${current.pressure} mb`;
+    document.querySelector('.pressure').textContent = `Pressure: ${current.pressure} hPa`;
     document.querySelector('.uv-index').textContent = `UV Index: ${current.uvindex}`;
     document.querySelector('.chance-of-rain').textContent = `Rain chance: ${today.precipprob}%`;
 
