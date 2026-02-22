@@ -140,6 +140,22 @@ header .search-bar {
     opacity: 0.85;
 }
 
+#suggestions {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: calc(100% + 8px);
+	margin: 0;
+	padding: 6px;
+	list-style: none;
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	background: rgba(8, 12, 22, 0.95);
+	box-shadow: var(--shadow);
+	max-height: 280px;
+	overflow: auto;
+}
+
 .content {
     max-width: 980px;
     margin: 20px auto;
