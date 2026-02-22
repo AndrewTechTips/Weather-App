@@ -85,7 +85,7 @@ export async function displayNextDays(days) {
 
     nextDayContainer.textContent = "";
 
-    const forecastDays = days.slice(1, 8);
+    const forecastDays = days.slice(1, 7);
 
     for (const day of forecastDays) {
 
