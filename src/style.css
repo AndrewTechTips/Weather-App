@@ -76,3 +76,266 @@ header .search-bar {
     box-shadow: 0 0 0 4px rgba(90, 209, 255, 0.12);
 }
 
+.geo-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 10px 14px;
+    height: 42px;
+
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.04);
+
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.geo-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+    border-color: rgba(90, 209, 255, 0.35);
+}
+
+.geo-btn:active {
+    transform: translateY(1px);
+}
+
+.geo-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.geo-text {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.geo-icon {
+    font-size: 16px;
+    opacity: 0.85;
+}
+
+.content {
+    max-width: 980px;
+    margin: 20px auto;
+    padding: 0 16px 28px;
+}
+
+.city-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 10px 0 14px;
+}
+
+.current {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    gap: 12px;
+    padding: 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.box-1, 
+.box-2,
+.box-3 {
+    padding: 14px;
+    border-radius: 12px;
+    background: var(--surface-2);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.box-1 {
+    display: flex;
+    gap: 24px;
+    align-items: start;
+}
+
+.temp-info {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.date-today {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+
+.temp-today {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 6px 0 10px;
+}
+
+.icon-current {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.weather-icon-main {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+
+.temp-current {
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.minmax-today {
+    display: flex;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.feelslike-head,
+.wind-head {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.temp-feelslike {
+    font-size: 26px;
+    font-weight: 750;
+    margin-bottom: 8px;
+}
+
+.description {
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+.wind-speed,
+.wind-gusts {
+    color: var(--text);
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.wind-direction-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    gap: 5px;
+}
+
+#wind-arrow {
+    font-size: 34px;
+    color: var(--accent);
+}
+
+#wind-dir-text {
+	margin-top: -10px;
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--muted);
+}
+
+.extra-info {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.extra-info > div {
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+}
+
+.next-days {
+    margin-top: 28px;
+    padding-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(120px, 1fr));
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    justify-items: center;
+}
+
+.day-card {
+    min-width: 120px;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.day-date {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.day-temp {
+    font-weight: 750;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.day-icon {
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.weather-icon-small {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.day-description {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.current, 
+.extra-info > div,
+.day-card {
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+
+
+
+
+
+
+
