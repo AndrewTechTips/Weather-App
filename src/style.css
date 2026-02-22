@@ -56,6 +56,19 @@ header .search-bar {
     position: relative;
 }
 
+.app-icone {
+	width: 40px;
+	height: 40px;
+	border-radius: 12px;
+	background: linear-gradient(
+		135deg,
+		rgba(90, 209, 255, 0.9),
+		rgba(125, 92, 255, 0.75)
+	);
+	box-shadow: var(--shadow);
+	display: none;
+}
+
 #my-city {
     width: 100%;
     padding: 12px 12px;
@@ -330,6 +343,14 @@ header .search-bar {
 .day-card {
     backdrop-filter: blur(8px);
     background: rgba(255, 255, 255, 0.03);
+}
+
+.sun-icon {
+	width: 18px;
+	height: 18px;
+	vertical-align: -3px;
+	margin-right: 6px;
+	opacity: 0.9;
 }
 
 
