@@ -1,6 +1,6 @@
 import sunriseIcon from '../assets/icons/sunrise.svg';
 import sunsetIcon from '../assets/icons/sunset.svg';
-import { getWeatherIcon } from "./getWeatherIcon";
+import { getWeatherIcon } from "../utils/getWeatherIcon";
 
 export async function displayCurrentWeather (data) {
     
