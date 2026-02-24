@@ -1,6 +1,7 @@
 import sunriseIcon from '../assets/icons/sunrise.svg';
 import sunsetIcon from '../assets/icons/sunset.svg';
 import { getWeatherIcon } from "../utils/getWeatherIcon";
+import { getWindDirection } from '../utils/getWindDirection';
 
 export async function displayCurrentWeather (data) {
     
@@ -36,9 +37,19 @@ export async function displayCurrentWeather (data) {
     //Box 3 details
     document.querySelector('.wind-head').textContent = 'Wind';
     document.querySelector('.wind-speed').textContent = `Speed: ${current.windspeed} km/h`;
+    
     if (current.windgust) {
         document.querySelector('.wind-gusts').textContent = `Gusts: ${current.windgust} km/h`;
     }
+
+    const windDirDegrees = current.winddir;
+    const windArrowEl = document.querySelector("#wind-arrow");
+    const windDirTextEl = document.querySelector("#wind-dir-text");
+
+    if (windArrowEl && windDirTextEl) {
+        windArrowEl.style.transform = `rotate(${windDirDegrees}deg)`;
+        windDirTextEl.textContent = getWindDirection(windDirDegrees);
+    } 
 
     //Extra Info
     const sunriseEl = document.querySelector(".sunrise");
