@@ -159,7 +159,7 @@ header .search-bar {
 .content {
     max-width: 980px;
     margin: 20px auto;
-    padding: 0 16px 28px;
+    padding: 0 16px 80px;
 }
 
 .city-name {
@@ -171,7 +171,7 @@ header .search-bar {
 
 .current {
     display: grid;
-    grid-template-columns: auto 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 12px;
     padding: 16px;
     border-radius: var(--radius);
@@ -293,7 +293,7 @@ header .search-bar {
 .extra-info {
     margin-top: 12px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
     gap: 12px;
 }
 
@@ -312,7 +312,7 @@ header .search-bar {
     grid-template-columns: repeat(6, minmax(120px, 1fr));
     gap: 12px;
     overflow-x: auto;
-    padding-bottom: 8px;
+    padding-bottom: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     justify-items: center;
 }
