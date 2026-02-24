@@ -50,7 +50,7 @@ export async function displayCurrentWeather (data) {
     sunriseImg.alt = "Sunrise";
 
     const textSpan = document.createElement("span");
-    textSpan.textContent = `Sunrise ${current.sunrise}`;
+    textSpan.textContent = `Sunrise ${current.sunrise.slice(0, 5)}`;
 
     sunriseEl.append(sunriseImg, textSpan);
 
@@ -63,7 +63,7 @@ export async function displayCurrentWeather (data) {
     sunsetImg.classList.add("sun-icon");
 
     const textSpan2 = document.createElement("span");
-    textSpan2.textContent = `Sunset ${current.sunset}`;
+    textSpan2.textContent = `Sunset ${current.sunset.slice(0, 5)}`;
     sunsetEl.append(sunsetImg, textSpan2);
     
     document.querySelector('.humidity').textContent = `Humidity: ${current.humidity}%`;
@@ -78,7 +78,7 @@ function getDayName (dateString) {
     return date.toLocaleDateString("en-US", {weekday: "short"});
 }
 
-//Function for displaying next 7 days forecast
+//Function for displaying next 6 days forecast
 export async function displayNextDays(days) {
 
     const nextDayContainer = document.querySelector(".next-days");
