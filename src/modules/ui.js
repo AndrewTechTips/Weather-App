@@ -79,7 +79,12 @@ export async function displayCurrentWeather (data) {
     
     document.querySelector('.humidity').textContent = `Humidity: ${current.humidity}%`;
     document.querySelector('.pressure').textContent = `Pressure: ${current.pressure} hPa`;
+
+    const uvIndex = current.uvindex ?? 0;
+
     document.querySelector('.uv-index').textContent = `UV Index: ${current.uvindex}`;
+
+
     document.querySelector('.chance-of-rain').textContent = `Rain chance: ${today.precipprob}%`;
 }
 
