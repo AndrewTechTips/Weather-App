@@ -1,5 +1,6 @@
 import sunriseIcon from '../assets/icons/sunrise.svg';
 import sunsetIcon from '../assets/icons/sunset.svg';
+import { getUVColor, getUVLevel } from '../utils/getUvDetails';
 import { getWeatherIcon } from "../utils/getWeatherIcon";
 import { getWindDirection } from '../utils/getWindDirection';
 
@@ -80,10 +81,26 @@ export async function displayCurrentWeather (data) {
     document.querySelector('.humidity').textContent = `Humidity: ${current.humidity}%`;
     document.querySelector('.pressure').textContent = `Pressure: ${current.pressure} hPa`;
 
-    const uvIndex = current.uvindex ?? 0;
+    const uvIndexEl = document.querySelector(".uv-index");
 
-    document.querySelector('.uv-index').textContent = `UV Index: ${current.uvindex}`;
+    const uvIndex = today.uvindex ?? 0;
+    const uvColor = getUVColor(uvIndex);
+    const uvLevel = getUVLevel(uvIndex);
 
+    uvIndexEl.textContent = "UV Index: ";
+
+    const valueSpan = document.createElement("span");
+    const levelSpan = document.createElement("span");
+
+    valueSpan.textContent = uvIndex;
+    valueSpan.style.color = uvColor;
+    valueSpan.style.fontSize = "18px";
+
+    levelSpan.textContent = ` ${uvLevel}`;
+    levelSpan.style.color = "var(--muted)";
+    levelSpan.style.fontSize = "11px";
+
+    uvIndexEl.append(valueSpan, levelSpan);
 
     document.querySelector('.chance-of-rain').textContent = `Rain chance: ${today.precipprob}%`;
 }
